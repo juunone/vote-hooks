@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useMemo} from 'react';
 import PropTypes from 'prop-types';
 import loadable from '@loadable/component';
 import Button from './Button';
@@ -7,25 +7,26 @@ import { faPoll } from '@fortawesome/free-solid-svg-icons';
 import moment from 'moment';
 const Line = loadable(() => import('./Line'))
 
+const calcPercent = props => {    
+  const { type, data } = props;
+  let inTime = 0;
+  if(type === 'ongoing'){
+    const total = (data.endedAt - data.startedAt);
+    const pastTime = (+ new Date - data.startedAt);
+    inTime = pastTime / total * 100
+  }else if(type === 'closed'){
+    inTime = 100;
+  }
+  
+  return Math.floor(inTime);
+}
 
 const Card = (props) => {
+  const avg = useMemo(() => calcPercent(props), [percent])
 
-  const calcPercent = () => {    
-    const { type, data } = props;
-    let inTime = 0;
-    if(type === 'ongoing'){
-      const total = (data.endedAt - data.startedAt);
-      const pastTime = (+ new Date - data.startedAt);
-      inTime = pastTime / total * 100
-    }else if(type === 'closed'){
-      inTime = 100;
-    }
-    
-    return Math.floor(inTime);
-  }
-
-  const [percent, setPercent] = useState(props.type !== 'ongoing' ? (props.type === 'standing' ? 0 : 100 ) : calcPercent());
+  const [percent, setPercent] = useState(props.type !== 'ongoing' ? (props.type === 'standing' ? 0 : 100 ) : calcPercent(props));
   const [delay] = useState(1000);
+
 
   useEffect(() => {
     const interval = setInterval(() => frame(), delay);
@@ -36,7 +37,7 @@ const Card = (props) => {
 
   const frame = () => {
     if (percent < 100){
-      setPercent(calcPercent());
+      setPercent(avg);
     }
   }
 
