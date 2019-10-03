@@ -6,7 +6,7 @@ const Button = (props) => {
   return(
     <button className={className} {...others} />
   ) 
-}
+};
 
 export default Button;
 

@@ -1,16 +1,12 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
-export default class Section extends Component{
-  constructor(props){
-    super(props);        
-  }
+const Section = (props) => {
+  const { className, ...others } = props;
+  return <section className={className} {...others} />;
+};
 
-  render(){
-    const { className, ...others } = this.props;
-    return <section className={className} {...others} />
-  }
-}
+export default Section;
 
 Section.propTypes = {
   className: PropTypes.string,

@@ -1,20 +1,17 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
-export default class Line extends Component{
-  constructor(props){
-    super(props);        
-  }
+const Line = (props) => {
+  const {className, percent} = props;
 
-  render(){
-    const {className, percent} = this.props;
-    return (
-      <div className={className}>
-        <span className={percent !== 100 ? 'animate' : ''} style={{width:`${percent}%`}}></span>
-      </div>
-    )
-  }
-}
+  return(
+    <div className={className}>
+      <span className={percent !== 100 ? 'animate' : ''} style={{width:`${percent}%`}}></span>
+    </div>
+  )
+};
+
+export default Line;
 
 Line.propTypes = {
   className: PropTypes.string,
