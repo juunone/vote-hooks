@@ -1,0 +1,15 @@
+main {
+  margin: 0 auto;
+  max-width: 1400px;
+  padding: 2em 1.7em;
+  min-height: calc(100vh - 180px);
+
+  .container {
+    .no-data {
+      text-align: center;
+      margin: 20vh auto;
+      font-size: 1.5rem;
+      line-height: 2;
+    }
+  }
+}

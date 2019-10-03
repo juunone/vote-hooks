@@ -1,0 +1,158 @@
+@import "../styles/utils.scss";
+
+.container__section {
+  .container__row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+
+  .container__card {
+    flex: 0 1 31.3%;
+    text-align: center;
+    box-shadow: 1px 0px 3px rgba(90, 90, 90, 0.4);
+    margin: 1em 1% 3em;
+    position: relative;
+
+    .container__background {
+      position: absolute;
+      top: 0;
+      width: 100%;
+      min-height: 10vh;
+      z-index: -1;
+    }
+
+    .container__symbol {
+      border: 1px solid $color-white;
+      width: 3em;
+      height: 3em;
+      margin: 1em auto 0;
+      line-height: 3em;
+      border-radius: 50%;
+      box-shadow: 1px 1px 5px rgba(16, 16, 16, 0.5);
+      font-size: 2rem;
+      background: $voting-symbol;
+    }
+
+    .container__card__title {
+      font-size: 1.2rem;
+      padding: 1.2em 0;
+    }
+
+    .container__card__footer {
+      background: $border-color-lighter;
+      height: 100%;
+      padding: 1em 0;
+      margin-top: 2em;
+      .container__card__author {
+        margin-top: 0.6em;
+        font-size: 0.8rem;
+        color: $font-color-light;
+      }
+    }
+
+    .container__card__button {
+      font-size: 0.8rem;
+      font-weight: 600;
+      width: 100px;
+    }
+  }
+
+  .vote__row--standing {
+    .container__card__button,
+    .container__background {
+      background: $voting-standing;
+    }
+    .container__symbol svg {
+      color: $voting-standing-symbol;
+    }
+  }
+
+  .vote__row--ongoing {
+    .container__card__button,
+    .container__background {
+      background: $voting-ongoing;
+    }
+    .container__symbol svg {
+      color: $voting-ongoing-symbol;
+    }
+  }
+
+  .vote__row--closed {
+    .container__card__button,
+    .container__background {
+      background: $voting-closed;
+    }
+    .container__symbol svg {
+      color: $voting-closed-symbol;
+    }
+  }
+}
+
+.progress {
+  height: 6px;
+  position: relative;
+  background: #d9d9d9;
+  border-radius: 0;
+  box-shadow: inset 0 -1px 1px rgba(255, 255, 255, 0.3);
+
+  span {
+    display: block;
+    height: 100%;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    position: relative;
+    overflow: hidden;
+
+    &.animate {
+      &:after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        background-image: linear-gradient(
+          -45deg,
+          rgba(255, 255, 255, 0.2) 25%,
+          transparent 25%,
+          transparent 50%,
+          rgba(255, 255, 255, 0.2) 50%,
+          rgba(255, 255, 255, 0.2) 75%,
+          transparent 75%,
+          transparent
+        );
+        z-index: 1;
+        background-size: 100px 100px;
+        border-top-right-radius: 8px;
+        border-bottom-right-radius: 8px;
+        border-top-left-radius: 20px;
+        border-bottom-left-radius: 20px;
+        overflow: hidden;
+        animation: move 2s linear infinite;
+      }
+    }
+  }
+
+  &.red span {
+    background-color: #f894a4;
+    background-image: $voting-ongoing;
+  }
+}
+
+.vote__row--closed .progress.red span {
+  background-color: #f894a4;
+  background-image: $voting-closed;
+}
+
+@keyframes move {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 50px 50px;
+  }
+}

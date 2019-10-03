@@ -1,0 +1,8 @@
+@import url("https://fonts.googleapis.com/css?family=Lexend+Deca|Nanum+Gothic|Open+Sans&display=swap");
+
+@import "base/reset", "base/normalize";
+
+@import "components/button", "components/title", "components/card",
+	"components/modal";
+
+@import "layout/header", "layout/main", "layout/footer";

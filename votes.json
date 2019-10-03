@@ -1,0 +1,48 @@
+[
+  {
+    "id": 1569817462129,
+    "author": "ddd",
+    "title": "dd",
+    "password": "123",
+    "contents": {
+      "category-1": {
+        "value": "1",
+        "voter": []
+      },
+      "category-2": {
+        "value": "2",
+        "voter": []
+      },
+      "category-3": {
+        "value": "3",
+        "voter": []
+      }
+    },
+    "startedAt": 1569719255013,
+    "endedAt": 1589821055014,
+    "topAcquisitionVote": 0
+  },
+  {
+    "id": 1569384885249,
+    "author": "dd",
+    "title": "dd",
+    "password": "1",
+    "contents": {
+      "category-1": {
+        "value": "33332",
+        "voter": []
+      },
+      "category-2": {
+        "value": "34",
+        "voter": []
+      },
+      "category-3": {
+        "value": "4",
+        "voter": []
+      }
+    },
+    "startedAt": 1569386670575,
+    "endedAt": 1569388470576,
+    "topAcquisitionVote": 0
+  }
+]

@@ -1,0 +1,45 @@
+@import "../styles/utils.scss";
+@import "~open-color/open-color";
+
+button {
+  border-radius: 7px;
+  padding: 0.9em 2.5em;
+  border: none;
+  font-size: 0.8rem;
+
+  &.nav__button {
+    background: linear-gradient(to right, #00c6ff, #0072ff);
+    color: $color-white;
+    border-radius: 5px;
+    padding: 1em 2.2em;
+  }
+
+  &.container__card__button {
+    background: linear-gradient(to right, #fdd7bf, #f894a4);
+    color: $color-white;
+    border-radius: 5px;
+    padding: 1em 1.2em;
+  }
+
+  &.default__button {
+    background: $oc-gray-6;
+    color: $color-white;
+    border-radius: 5px;
+    padding: 1em 1.2em;
+  }
+
+  &.add__button {
+    background: $color-white;
+    padding: 0.7em 2.5em;
+    width: 100%;
+    border-radius: 0;
+    border-top: none;
+  }
+
+  &.delete__button {
+    background: $oc-red-6;
+    color: #fff;
+    border-radius: 5px;
+    padding: 1em 2.2em;
+  }
+}

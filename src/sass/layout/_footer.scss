@@ -1,0 +1,9 @@
+@import "../styles/utils.scss";
+@import "~open-color/open-color";
+
+footer {
+  padding: 1em;
+  text-align: right;
+  background: #0072ff;
+  color: $color-white;
+}
