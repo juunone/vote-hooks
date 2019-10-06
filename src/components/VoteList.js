@@ -9,7 +9,7 @@ import loadable from '@loadable/component';
 const Title = loadable(() => import(/* webpackChunkName: "Title" */'./common/Title'))
 const Section = loadable(() => import(/* webpackChunkName: "Section" */'./common/Section'))
 const Card = loadable(() => import(/* webpackChunkName: "Card" */'./common/Card'))
-const Modal = loadable(() => import(/* webpackChunkName: "Modal" */'./common/Modal'))
+const Modal = loadable(() => import(/* webpackChunkName: "Modal" */'./common/ModalHook'))
 
 const VoteList = (props) => {
   useEffect(() => {
@@ -90,7 +90,6 @@ const VoteList = (props) => {
   }, [props.closedData])
 
   const renderData = (data, type) => {
-    console.log(data)
     const mappingData = data.map((v,i) => {
       return (
         <div key={i} className={'container__card'}>
