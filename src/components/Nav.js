@@ -2,11 +2,12 @@ import React, { useCallback } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import * as types from '../actions/ActionTypes'
-import Button from './common/Button';
-import Modal from './common/Modal';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlus } from '@fortawesome/free-solid-svg-icons'
 import { confirmAlert } from 'react-confirm-alert';
+import loadable from '@loadable/component';
+const Button = loadable(() => import(/* webpackChunkName: "Button" */'./common/Button'))
+const Modal = loadable(() => import(/* webpackChunkName: "Modal" */'./common/ModalHook'))
 
 const Nav = (props) => {
   const handleSave = (onClose, data) => {
